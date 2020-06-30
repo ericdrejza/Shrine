@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 
+import org.jetbrains.annotations.NotNull;
+
 public class ProductGridFragment extends Fragment {
 
     @Override
@@ -41,6 +43,7 @@ public class ProductGridFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),
               2, GridLayoutManager.VERTICAL, false));
+
         ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
               ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
@@ -60,7 +63,7 @@ public class ProductGridFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    public void onCreateOptionsMenu(@NotNull Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.shr_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
